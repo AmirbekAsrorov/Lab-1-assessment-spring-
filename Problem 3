@@ -1,0 +1,75 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<map>
+#include<algorithm>
+using namespace std;
+
+//Problem 3:
+
+class Student{
+private:
+    string name;
+    long int id;
+    string groupName;
+
+public:
+    Student(const string& name,long int id,const string& groupName){
+        this->name=name;
+        this->id=id;
+        this->groupName=groupName;
+    }
+
+    string getGroupName()const{
+        return groupName;
+    }
+};
+
+void printGroupCounts(const vector<Student>& students){
+    map<string,int> groupCounts;
+    for(const Student& student:students){
+        groupCounts[student.getGroupName()]++;
+    }
+
+    for(const auto& pair:groupCounts){
+        cout<<"Group Name:"<<pair.first<<",Number of Students:"<<pair.second<<endl;
+    }
+}
+
+int main(){
+    vector<Student> students;
+    int n;
+    cout<<"Enter the number of students:";
+    cin>>n;
+    cin.ignore();
+
+    for(int i=0;i<n;i++){
+        string name,groupName;
+        long int id;
+
+        cout<<"Enter the name of student "<<i+1<<":";
+        getline(cin,name);
+
+        cout<<"Enter the ID of student "<<i+1<<":";
+        cin>>id;
+        cin.ignore();
+
+        cout<<"Enter the group name of student "<<i+1<<":";
+        getline(cin,groupName);
+
+        students.emplace_back(name,id,groupName);
+    }
+
+    sort(students.begin(),students.end(),[](const Student& s1,const Student& s2){
+        return s1.getGroupName()<s2.getGroupName();
+    });
+
+    cout<<"Number of Students in Each Group:"<<endl;
+    printGroupCounts(students);
+
+    return 0;
+} 
+
+
+
+
