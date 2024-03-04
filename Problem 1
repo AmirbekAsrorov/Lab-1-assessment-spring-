@@ -1,0 +1,54 @@
+#include <iostream>
+//#include “cmath”
+#include <string>
+
+using namespace std;
+//Problem 1:
+class Person {
+private:
+    string firstName;
+    string lastName;
+    int age;
+public:
+    Person(const string& firstName, const string& lastName, int age){
+        this->firstName=firstName;
+        this->lastName=lastName;
+        this->age=age;
+    }
+    string getFirstName() const{
+        return firstName;
+    }
+    string getLastName() const{
+        return lastName;
+    }
+    int getAge() const{
+        return age;
+    }
+    void setFirstName(const string& firstName){
+        this->firstName=firstName;
+    }
+    void setLastName(const string& lastName){
+        this->lastName=lastName;
+    }
+    void setAge(int age) {
+        this->age=age;
+    }
+};
+
+int main() {
+    Person person1("John", "Doe", 25);
+    Person person2("Jane", "Smith", 30);   
+    cout<<"First Name: "<<person1.getFirstName()<<endl;
+    cout<<"Last Name: "<< person1.getLastName()<<endl;
+   cout<<"Age: "<<person1.getAge()<<endl;  
+    cout<<"First Name: "<<person2.getFirstName()<<endl;
+    cout<<"Last Name: "<<person2.getLastName()<<endl;
+    cout<<"Age: "<<person2.getAge()<<endl;
+
+    return 0;
+} 
+
+
+
+
+
