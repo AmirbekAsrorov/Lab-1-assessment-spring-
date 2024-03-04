@@ -1,0 +1,44 @@
+#include <iostream>
+
+using namespace std;
+// Problem 2:
+
+class Timer {
+private:
+    int hours;
+    int minutes;
+    int seconds;
+
+public:
+    Timer(int hours, int minutes, int seconds) {
+        if(hours>=0&&hours<=23)
+            this->hours=hours;
+        else
+            this->hours=0;
+
+        if(minutes>=0&&minutes<=59)
+            this->minutes=minutes;
+        else
+            this->minutes=0;
+
+        if(seconds>=0&&seconds<=59)
+            this->seconds=seconds;
+        else
+            this->seconds=0;
+    }
+
+    void printTime() const {
+        cout<<hours<<":"<<minutes<<":"<<seconds<<endl;
+    }
+};
+
+int main() {
+    Timer timer(10,30,45);
+    timer.printTime();
+
+    return 0;
+}
+
+
+
+
